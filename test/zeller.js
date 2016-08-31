@@ -1,7 +1,7 @@
 "use strict";
 
 const { assert } = require('chai');
-const { zeller, isoDateFormatter } = require('../lib/zeller');
+const { zeller, sundayIndexedDay } = require('../lib/zeller');
 
 describe('Day of Week Calculation', () => {
   describe('Zeller Congruence', () => {
@@ -15,10 +15,7 @@ describe('Day of Week Calculation', () => {
           month: 8,
           day: i
         };
-        let expected = i - (7 * Math.floor(i / 7));
-        if (expected === 0) {
-          expected = 7;
-        }
+        let expected = i % 7;
         assert.strictEqual(zeller(dateToTest), expected);
       }
     });
@@ -28,17 +25,17 @@ describe('Day of Week Calculation', () => {
         month: 1,
         day: 1
       };
-      assert.strictEqual(7, zeller(dateTest));
+      assert.strictEqual(zeller(dateTest), 0);
     });
   });
-  describe('isoDateFormatter', () => {
+  describe('sundayIndexedDay', () => {
     it('should be a function', () => {
-      assert.isFunction(isoDateFormatter);
+      assert.isFunction(sundayIndexedDay);
     });
     it('should take a zeller day of the week and convert it to be 0 indexed on Monday', () => {
-      const zellerDate = 2;
-      const expected = 1;
-      assert.strictEqual(isoDateFormatter(zellerDate), expected);
+      const zellerDate = 1;
+      const expected = 0;
+      assert.strictEqual(sundayIndexedDay(zellerDate), expected);
     });
   });
 });
