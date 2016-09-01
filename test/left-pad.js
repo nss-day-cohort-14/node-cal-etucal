@@ -9,10 +9,10 @@ describe('Left-Pad', () => {
   });
   it('should accept a odd lengthed month name and return a padding', () => {
     const expected = "      ";
-    assert.strictEqual(leftPad('May'), expected);
+    assert.strictEqual(leftPad(2016, 5), expected);
   });
   it('should accept a even lengthed month name and return a padding', () => {
     const expected = "    ";
-    assert.strictEqual(leftPad('August'), expected);
+    assert.strictEqual(leftPad(2016, 8), expected);
   });
 });
