@@ -10,8 +10,8 @@ describe('Print Year', () => {
     assert.isFunction(printYear);
   });
   it('should print a formatted year', (cb) => {
-    exec('cal 2013', (err, stdout) => {
-      assert.strictEqual(printYear(2013), stdout.toString());
+    exec('cal 1900', (err, stdout) => {
+      assert.strictEqual(printYear(1900), stdout.toString());
       cb();
     });
   });
