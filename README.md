@@ -17,7 +17,7 @@ that can be run be typing `./bin/node-cal` from the project root.
 TO run the tests on the outputs please install Mocha and Chai. This can be done with the
 `npm install` command. Run tests with `npm test` command.  
 To test coverage we also require Istanbul. To use it and run test coverage type
-`npm run _mocha`.
+`npm run coverage`.
 ### Options
 The app takes 0-2 arguments on the command line.   
 Zero arguments will return the current month.  
